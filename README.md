@@ -1,2 +1,5 @@
 # i18next-xhr-backend
-backend layer for i18next using browsers xhr
+
+
+`gulp build` builds release version
+`gulp build --debug` will build unminified version
