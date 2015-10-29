@@ -122,5 +122,7 @@ class Backend {
   }
 }
 
+Backend.type = 'backend';
+
 
 export default Backend;
