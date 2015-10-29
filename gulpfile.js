@@ -126,6 +126,9 @@ function inc(version) {
     // save it back to filesystem
     .pipe(gulp.dest('./'))
 
+    // commit change
+    .pipe(git.commit('bumps package version'))
+
     // read only one file to get the version number
     .pipe(filter('package.json'))
     // **tag it in the repository**
@@ -136,7 +139,6 @@ function inc(version) {
         message: 'Commit and Push tag ' + version + ' to github?',
         default: false
     }))
-    .pipe(git.commit('bumps package version'))
     .pipe(cb(function() {
       git.push('origin','master', {args: ' --tags'}, function (err) {
         if (err) throw err;
