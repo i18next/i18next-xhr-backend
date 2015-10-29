@@ -1,6 +1,6 @@
 {
   "name": "i18nextXHRBackend",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./bin/index.js",
   "dependencies": {},
   "ignore": [
