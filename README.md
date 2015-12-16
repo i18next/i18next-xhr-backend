@@ -11,7 +11,7 @@ Source can be loaded via [npm](https://www.npmjs.com/package/i18next-xhr-backend
 $ npm install i18next-xhr-backend
 
 # bower
-$ bower install i18next/i18next-xhr-backend
+$ bower install i18next-xhr-backend
 ```
 
 Wiring up:
