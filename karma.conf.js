@@ -8,7 +8,7 @@ module.exports = function(karma) {
     files: [
       //'vendor/external.js',
       'test/**/*.spec.js',
-      { pattern: 'test/locales/**/*.json', watched: true, included: false, served: true},
+      { pattern: 'test/locales/**/*.json*', watched: true, included: false, served: true},
     ],
 
     proxies: {
