@@ -60,7 +60,8 @@ function getDefaults() {
   return {
     loadPath: '/locales/{{lng}}/{{ns}}.json',
     addPath: 'locales/add/{{lng}}/{{ns}}',
-    allowMultiLoading: false
+    allowMultiLoading: false,
+    parse: JSON.parse
   };
 }
 
@@ -96,7 +97,7 @@ class Backend {
 
       let ret, err;
       try {
-        ret = JSON.parse(data);
+        ret = this.options.parse(data);
       } catch (e) {
         err = 'failed parsing ' + url + ' to json';
       }
