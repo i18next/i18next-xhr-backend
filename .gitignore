@@ -1,6 +1,7 @@
 # Ignore specific files
 .settings.xml
 .monitor
+.idea
 .DS_Store
 *.orig
 npm-debug.log
