@@ -63,7 +63,8 @@ function getDefaults() {
     loadPath: '/locales/{{lng}}/{{ns}}.json',
     addPath: 'locales/add/{{lng}}/{{ns}}',
     allowMultiLoading: false,
-    parse: JSON.parse
+    parse: JSON.parse,
+    crossDomain: false
   };
 }
 
