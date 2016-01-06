@@ -1,7 +1,7 @@
 import * as utils from './utils';
 
 // https://gist.github.com/Xeoncross/7663273
-function ajax(url, callback, data, cache) {
+function ajax(url, options, callback, data, cache) {
   // Must encode data
   if(data && typeof data === 'object') {
     var y = '', e = encodeURIComponent;
@@ -14,7 +14,9 @@ function ajax(url, callback, data, cache) {
   try {
     var x = new (XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
     x.open(data ? 'POST' : 'GET', url, 1);
-    x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    if (!options.crossDomain) {
+      x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    }
     x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     x.onreadystatechange = function() {
       x.readyState > 3 && callback && callback(x.responseText, x);
@@ -61,7 +63,8 @@ function getDefaults() {
     loadPath: '/locales/{{lng}}/{{ns}}.json',
     addPath: 'locales/add/{{lng}}/{{ns}}',
     allowMultiLoading: false,
-    parse: JSON.parse
+    parse: JSON.parse,
+    crossDomain: false
   };
 }
 
@@ -90,7 +93,7 @@ class Backend {
   }
 
   loadUrl(url, callback) {
-    ajax(url, (data, xhr) => {
+    ajax(url, this.options, (data, xhr) => {
       const statusCode = xhr.status.toString();
       if (statusCode.indexOf('5') === 0) return callback('failed loading ' + url, true /* retry */);
       if (statusCode.indexOf('4') === 0) return callback('failed loading ' + url, false /* no retry */);
@@ -115,7 +118,7 @@ class Backend {
     languages.forEach(lng => {
       let url = this.services.interpolator.interpolate(this.options.addPath, { lng: lng, ns: namespace });
 
-      ajax(url, function(data, xhr) {
+      ajax(url, this.options, function(data, xhr) {
         //const statusCode = xhr.status.toString();
         // TODO: if statusCode === 4xx do log
       }, payload);
