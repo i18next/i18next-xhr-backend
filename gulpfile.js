@@ -69,12 +69,13 @@ gulp.task('test', function (done) {
   }, done).start();
 });
 
-gulp.task('test_compat', function (done) {
+gulp.task('test_forCI', function (done) {
   new Server({
-    configFile: __dirname + '/karma.backward.conf.js'
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true,
+    reporters: [ 'coverage', 'coveralls', 'spec' ],
   }, done).start();
 });
-
 
 gulp.task('tdd', function (done) {
   new Server({
@@ -174,3 +175,5 @@ gulp.task('bump', function() { return inc(argv.v); });
 gulp.task('default', ['watch']);
 gulp.task('build', ['concat', 'babel', 'rename']);
 gulp.task('publish', ['bump']);
+
+gulp.task('test_ci', ['test_forCI']);
