@@ -1,5 +1,11 @@
 # Introduction
 
+[![Travis](https://img.shields.io/travis/i18next/i18next-xhr-backend/master.svg?style=flat-square)](https://travis-ci.org/i18next/i18next-xhr-backend)
+[![Coveralls](https://img.shields.io/coveralls/i18next/i18next-xhr-backend/master.svg?style=flat-square)](https://coveralls.io/github/i18next/i18next-xhr-backend)
+[![npm version](https://img.shields.io/npm/v/i18next-xhr-backend.svg?style=flat-square)](https://www.npmjs.com/package/i18next-xhr-backend)
+[![Bower](https://img.shields.io/bower/v/i18next-xhr-backend.svg)]()
+[![David](https://img.shields.io/david/i18next/i18next-xhr-backend.svg?style=flat-square)](https://david-dm.org/i18next/i18next-xhr-backend)
+
 This is a simple i18next backend to be used in the browser. It will load resources from a backend server using xhr.
 
 # Getting started
