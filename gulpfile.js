@@ -36,7 +36,7 @@ function compile(watch) {
       .on('error', function(err) { console.error(err); this.emit('end'); })
       .pipe(source(output))
       .pipe(buffer())
-   //   .pipe(gulpif(!argv.debug, uglify()))
+      .pipe(gulpif(!argv.debug, uglify()))
       .pipe(gulpif(argv.debug, sourcemaps.init({ loadMaps: true })))
       .pipe(gulpif(argv.debug, sourcemaps.write('./')))
       .pipe(gulp.dest('./bin'));
