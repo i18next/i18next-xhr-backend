@@ -57,10 +57,11 @@ i18next
   crossDomain: false,
 
   // define a custom xhr function
-  // can be set to support XDomainRequest in IE 8 and 9
-  ajax: function(url, callback, data) { }
+  // can be used to support XDomainRequest in IE 8 and 9
+  ajax: function (url, options, callback, data) {}
 }
 ```
+
 
 Options can be passed in:
 

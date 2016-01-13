@@ -1,1 +1,205 @@
-!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var t;t="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,t.i18nextXHRBackend=e()}}(function(){return function e(t,n,o){function r(a,u){if(!n[a]){if(!t[a]){var s="function"==typeof require&&require;if(!u&&s)return s(a,!0);if(i)return i(a,!0);var l=new Error("Cannot find module '"+a+"'");throw l.code="MODULE_NOT_FOUND",l}var f=n[a]={exports:{}};t[a][0].call(f.exports,function(e){var n=t[a][1][e];return r(n?n:e)},f,f.exports,e,t,n,o)}return n[a].exports}for(var i="function"==typeof require&&require,a=0;a<o.length;a++)r(o[a]);return r}({1:[function(e,t,n){"use strict";function o(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t["default"]=e,t}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t,n,o,r){if(o&&"object"==typeof o){var i="",a=encodeURIComponent;for(var u in o)i+="&"+a(u)+"="+a(o[u]);o=i.slice(1)+(r?"":"&_t="+new Date)}try{var s=new(XMLHttpRequest||ActiveXObject)("MSXML2.XMLHTTP.3.0");s.open(o?"POST":"GET",e,1),t.crossDomain||s.setRequestHeader("X-Requested-With","XMLHttpRequest"),s.setRequestHeader("Content-type","application/x-www-form-urlencoded"),s.onreadystatechange=function(){s.readyState>3&&n&&n(s.responseText,s)},s.send(o)}catch(a){window.console&&console.log(a)}}function a(){return{loadPath:"/locales/{{lng}}/{{ns}}.json",addPath:"locales/add/{{lng}}/{{ns}}",allowMultiLoading:!1,parse:JSON.parse,crossDomain:!1}}Object.defineProperty(n,"__esModule",{value:!0});var u=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}(),s=e("./utils"),l=o(s),f=function(){function e(t){var n=arguments.length<=1||void 0===arguments[1]?{}:arguments[1];r(this,e),this.init(t,n),this.type="backend"}return u(e,[{key:"init",value:function(e){var t=arguments.length<=1||void 0===arguments[1]?{}:arguments[1];this.services=e,this.options=l.defaults(t,this.options||{},a())}},{key:"readMulti",value:function(e,t,n){var o=this.services.interpolator.interpolate(this.options.loadPath,{lng:e.join("+"),ns:t.join("+")});this.loadUrl(o,n)}},{key:"read",value:function(e,t,n){var o=this.services.interpolator.interpolate(this.options.loadPath,{lng:e,ns:t});this.loadUrl(o,n)}},{key:"loadUrl",value:function(e,t){var n=this;i(e,this.options,function(o,r){var i=r.status.toString();if(0===i.indexOf("5"))return t("failed loading "+e,!0);if(0===i.indexOf("4"))return t("failed loading "+e,!1);var a=void 0,u=void 0;try{a=n.options.parse(o)}catch(s){u="failed parsing "+e+" to json"}return u?t(u,!1):void t(null,a)})}},{key:"create",value:function(e,t,n,o){var r=this;"string"==typeof e&&(e=[e]);var a={};a[n]=o||"",e.forEach(function(e){var n=r.services.interpolator.interpolate(r.options.addPath,{lng:e,ns:t});i(n,r.options,function(e,t){},a)})}}]),e}();f.type="backend",n["default"]=f,t.exports=n["default"]},{"./utils":2}],2:[function(e,t,n){"use strict";function o(e){return a.call(u.call(arguments,1),function(t){if(t)for(var n in t)void 0===e[n]&&(e[n]=t[n])}),e}function r(e){return a.call(u.call(arguments,1),function(t){if(t)for(var n in t)e[n]=t[n]}),e}Object.defineProperty(n,"__esModule",{value:!0}),n.defaults=o,n.extend=r;var i=[],a=i.forEach,u=i.slice},{}]},{},[1])(1)});
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.i18nextXHRBackend = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+var _utils = require('./utils');
+
+var utils = _interopRequireWildcard(_utils);
+
+// https://gist.github.com/Xeoncross/7663273
+function ajax(url, options, callback, data, cache) {
+  // Must encode data
+  if (data && typeof data === 'object') {
+    var y = '',
+        e = encodeURIComponent;
+    for (var m in data) {
+      y += '&' + e(m) + '=' + e(data[m]);
+    }
+    data = y.slice(1) + (!cache ? '&_t=' + new Date() : '');
+  }
+
+  try {
+    var x = new (XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
+    x.open(data ? 'POST' : 'GET', url, 1);
+    if (!options.crossDomain) {
+      x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    }
+    x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    x.onreadystatechange = function () {
+      x.readyState > 3 && callback && callback(x.responseText, x);
+    };
+    x.send(data);
+  } catch (e) {
+    window.console && console.log(e);
+  }
+};
+
+// ajax.uriEncode = function(o) {
+//     var x, y = '', e = encodeURIComponent;
+//     for (x in o) y += '&' + e(x) + '=' + e(o[x]);
+//     return y.slice(1);
+// };
+//
+// ajax.collect = (a, f) {
+//     var n = [];
+//     for (var i = 0; i < a.length; i++) {
+//         var v = f(a[i]);
+//         if (v != null) n.push(v);
+//     }
+//     return n;
+// };
+//
+// ajax.serialize = function (f) {
+//     function g(n) {
+//         return f.getElementsByTagName(n);
+//     };
+//     var nv = function (e) {
+//         if (e.name) return encodeURIComponent(e.name) + '=' + encodeURIComponent(e.value);
+//     };
+//     var i = collect(g('input'), function (i) {
+//         if ((i.type != 'radio' && i.type != 'checkbox') || i.checked) return nv(i);
+//     });
+//     var s = collect(g('select'), nv);
+//     var t = collect(g('textarea'), nv);
+//     return i.concat(s).concat(t).join('&');
+// };
+//
+
+function getDefaults() {
+  return {
+    loadPath: '/locales/{{lng}}/{{ns}}.json',
+    addPath: 'locales/add/{{lng}}/{{ns}}',
+    allowMultiLoading: false,
+    parse: JSON.parse,
+    crossDomain: false
+  };
+}
+
+var Backend = (function () {
+  function Backend(services) {
+    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+    _classCallCheck(this, Backend);
+
+    this.init(services, options);
+
+    this.type = 'backend';
+  }
+
+  _createClass(Backend, [{
+    key: 'init',
+    value: function init(services) {
+      var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+      this.services = services;
+      this.options = utils.defaults(options, this.options || {}, getDefaults());
+    }
+  }, {
+    key: 'readMulti',
+    value: function readMulti(languages, namespaces, callback) {
+      var url = this.services.interpolator.interpolate(this.options.loadPath, { lng: languages.join('+'), ns: namespaces.join('+') });
+
+      this.loadUrl(url, callback);
+    }
+  }, {
+    key: 'read',
+    value: function read(language, namespace, callback) {
+      var url = this.services.interpolator.interpolate(this.options.loadPath, { lng: language, ns: namespace });
+
+      this.loadUrl(url, callback);
+    }
+  }, {
+    key: 'loadUrl',
+    value: function loadUrl(url, callback) {
+      var _this = this;
+
+      ajax(url, this.options, function (data, xhr) {
+        var statusCode = xhr.status.toString();
+        if (statusCode.indexOf('5') === 0) return callback('failed loading ' + url, true /* retry */);
+        if (statusCode.indexOf('4') === 0) return callback('failed loading ' + url, false /* no retry */);
+
+        var ret = undefined,
+            err = undefined;
+        try {
+          ret = _this.options.parse(data);
+        } catch (e) {
+          err = 'failed parsing ' + url + ' to json';
+        }
+        if (err) return callback(err, false);
+        callback(null, ret);
+      });
+    }
+  }, {
+    key: 'create',
+    value: function create(languages, namespace, key, fallbackValue) {
+      var _this2 = this;
+
+      if (typeof languages === 'string') languages = [languages];
+
+      var payload = {};
+      payload[key] = fallbackValue || '';
+
+      languages.forEach(function (lng) {
+        var url = _this2.services.interpolator.interpolate(_this2.options.addPath, { lng: lng, ns: namespace });
+
+        ajax(url, _this2.options, function (data, xhr) {
+          //const statusCode = xhr.status.toString();
+          // TODO: if statusCode === 4xx do log
+        }, payload);
+      });
+    }
+  }]);
+
+  return Backend;
+})();
+
+Backend.type = 'backend';
+
+exports['default'] = Backend;
+module.exports = exports['default'];
+
+},{"./utils":2}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.defaults = defaults;
+exports.extend = extend;
+var arr = [];
+var each = arr.forEach;
+var slice = arr.slice;
+
+function defaults(obj) {
+  each.call(slice.call(arguments, 1), function (source) {
+    if (source) {
+      for (var prop in source) {
+        if (obj[prop] === undefined) obj[prop] = source[prop];
+      }
+    }
+  });
+  return obj;
+}
+
+function extend(obj) {
+  each.call(slice.call(arguments, 1), function (source) {
+    if (source) {
+      for (var prop in source) {
+        obj[prop] = source[prop];
+      }
+    }
+  });
+  return obj;
+}
+
+},{}]},{},[1])(1)
+});
