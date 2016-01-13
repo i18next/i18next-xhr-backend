@@ -58,7 +58,7 @@ i18next
 
   // define a custom xhr function
   // can be set to support XDomainRequest in IE 8 and 9
-  xhr: function(url, callback, data) { }
+  ajax: function(url, callback, data) { }
 }
 ```
 
