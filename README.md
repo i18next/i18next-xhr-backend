@@ -54,7 +54,11 @@ i18next
   parse: function(data) { return data.replace(/a/g, ''); },
   
   // allow cross domain requests
-  crossDomain: false
+  crossDomain: false,
+
+  // define a custom xhr function
+  // can be set to support XDomainRequest in IE 8 and 9
+  xhr: function(url, callback, data) { }
 }
 ```
 
