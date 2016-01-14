@@ -64,7 +64,8 @@ function getDefaults() {
     addPath: 'locales/add/{{lng}}/{{ns}}',
     allowMultiLoading: false,
     parse: JSON.parse,
-    crossDomain: false
+    crossDomain: false,
+    ajax: ajax
   };
 }
 
@@ -93,7 +94,7 @@ class Backend {
   }
 
   loadUrl(url, callback) {
-    ajax(url, this.options, (data, xhr) => {
+    this.options.ajax(url, this.options, (data, xhr) => {
       const statusCode = xhr.status.toString();
       if (statusCode.indexOf('5') === 0) return callback('failed loading ' + url, true /* retry */);
       if (statusCode.indexOf('4') === 0) return callback('failed loading ' + url, false /* no retry */);
@@ -118,7 +119,7 @@ class Backend {
     languages.forEach(lng => {
       let url = this.services.interpolator.interpolate(this.options.addPath, { lng: lng, ns: namespace });
 
-      ajax(url, this.options, function(data, xhr) {
+      this.options.ajax(url, this.options, function(data, xhr) {
         //const statusCode = xhr.status.toString();
         // TODO: if statusCode === 4xx do log
       }, payload);
