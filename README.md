@@ -52,7 +52,7 @@ i18next
   // in example use https://www.npmjs.com/package/json5
   // here it removes the letter a from the json (bad idea)
   parse: function(data) { return data.replace(/a/g, ''); },
-  
+
   // allow cross domain requests
   crossDomain: false,
 
@@ -90,4 +90,35 @@ via calling init:
   import XHR from 'i18next-xhr-backend';
   const xhr = new XHR();
   xhr.init(options);
+```
+
+### Usage with webpack
+
+To use with webpack, install [bundle-loader](https://github.com/webpack/bundle-loader) and [json-loader](https://github.com/webpack/json-loader).
+
+Define a custom xhr function, webpack's bundle loader will load the translations for you.
+
+```js
+function loadLocales(url, options, callback, data) {
+  try {
+    let waitForLocale = require('bundle!./locales/'+url+'.json');
+    waitForLocale((locale) => {
+      callback(locale, {status: '200'});
+    })
+  } catch (e) {
+    callback(null, {status: '404'});
+  }
+}
+
+i18next
+  .use(XHR)
+  .init({
+    backend: {
+      loadPath: '{{lng}}',
+      parse: (data) => data,
+      ajax: loadLocales
+    }
+  }, (err, t) => {
+    // ...
+  });
 ```
