@@ -54,7 +54,7 @@
     "vinyl-buffer": "1.0.0",
     "vinyl-source-stream": "1.1.0",
     "watchify": "3.7.0",
-    "yargs": "3.31.0"
+    "yargs": "4.1.0"
   },
   "scripts": {
     "test": "gulp test_ci"
