@@ -1,6 +1,6 @@
 {
   "name": "i18next-xhr-backend",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "backend layer for i18next using browsers xhr",
   "main": "./index.js",
   "jsnext:main": "dist/es/index.js",
