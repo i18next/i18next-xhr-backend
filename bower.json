@@ -1,11 +1,10 @@
 {
   "name": "i18next-xhr-backend",
-  "version": "0.4.0",
-  "main": "./bin/index.js",
+  "main": "./i18nextXHRBackend.js",
   "dependencies": {},
   "ignore": [
     "test/",
-    "lib/",
+    "dist/",
     "src/",
     "coverage/",
     ".babelrc",

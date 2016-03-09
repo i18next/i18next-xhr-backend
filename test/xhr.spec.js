@@ -1,5 +1,5 @@
 import XHR from '../src/';
-import Interpolator from 'i18next/lib/Interpolator';
+import Interpolator from 'i18next/dist/commonjs/Interpolator';
 import JSON5 from 'json5';
 
 describe('XHR backend', () => {

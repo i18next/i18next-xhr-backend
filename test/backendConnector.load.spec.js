@@ -1,7 +1,7 @@
-import BackendConnector from 'i18next/lib/BackendConnector.js';
+import BackendConnector from 'i18next/dist/commonjs/BackendConnector.js';
 import XHR from '../src/';
-import Interpolator from 'i18next/lib/Interpolator';
-import ResourceStore from 'i18next/lib/ResourceStore.js';
+import Interpolator from 'i18next/dist/commonjs/Interpolator';
+import ResourceStore from 'i18next/dist/commonjs/ResourceStore.js';
 
 describe('BackendConnector basic load', () => {
   let connector;
