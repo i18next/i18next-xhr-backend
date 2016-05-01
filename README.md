@@ -122,3 +122,16 @@ i18next
     // ...
   });
 ```
+
+## If You use typescript##
+You can find typings file in `/typings` folder.
+> in order to comply with some neat project structure You would copy `i18next-xhr-backend.d.ts` file from `typings/*.d.ts` to some other folder, e.g. `/customTypings`
+
+The next step - to give the compiler know about your  `*.d.ts` files. Add the following section to your `tsconfig.json` file.
+```javascript
+//...some configuration code
+"filesGlob": [
+    "./your_custom_typings_folder_path/**/*.d.ts"
+  ],
+//...some configuration code
+```
