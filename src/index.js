@@ -17,7 +17,9 @@ function ajax(url, options, callback, data, cache) {
     if (!options.crossDomain) {
       x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     }
-    x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    if (data) {
+      x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    }
     x.onreadystatechange = function() {
       x.readyState > 3 && callback && callback(x.responseText, x);
     };
