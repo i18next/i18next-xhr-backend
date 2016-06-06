@@ -162,9 +162,8 @@
         var _this = this;
 
         this.options.ajax(url, this.options, function (data, xhr) {
-          var statusCode = xhr.status.toString();
-          if (statusCode.indexOf('5') === 0) return callback('failed loading ' + url, true /* retry */);
-          if (statusCode.indexOf('4') === 0) return callback('failed loading ' + url, false /* no retry */);
+          if (xhr.status >= 500 && xhr.status < 600) return callback('failed loading ' + url, true /* retry */);
+          if (xhr.status >= 400 && xhr.status < 500) return callback('failed loading ' + url, false /* no retry */);
 
           var ret = void 0,
               err = void 0;
