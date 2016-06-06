@@ -97,9 +97,8 @@ class Backend {
 
   loadUrl(url, callback) {
     this.options.ajax(url, this.options, (data, xhr) => {
-      const statusCode = xhr.status.toString();
-      if (statusCode.indexOf('5') === 0) return callback('failed loading ' + url, true /* retry */);
-      if (statusCode.indexOf('4') === 0) return callback('failed loading ' + url, false /* no retry */);
+      if (xhr.status >= 500 && xhr.status < 600) return callback('failed loading ' + url, true /* retry */);
+      if (xhr.status >= 400 && xhr.status < 500) return callback('failed loading ' + url, false /* no retry */);
 
       let ret, err;
       try {
