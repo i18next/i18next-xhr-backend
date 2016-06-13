@@ -168,7 +168,7 @@
           var ret = void 0,
               err = void 0;
           try {
-            ret = _this.options.parse(data);
+            ret = _this.options.parse(data, url);
           } catch (e) {
             err = 'failed parsing ' + url + ' to json';
           }

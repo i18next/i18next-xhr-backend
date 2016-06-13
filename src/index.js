@@ -102,7 +102,7 @@ class Backend {
 
       let ret, err;
       try {
-        ret = this.options.parse(data);
+        ret = this.options.parse(data, url);
       } catch (e) {
         err = 'failed parsing ' + url + ' to json';
       }
