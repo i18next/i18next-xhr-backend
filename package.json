@@ -52,7 +52,7 @@
     "rollup-plugin-npm": "1.4.0",
     "rollup-plugin-uglify": "0.2.0",
     "sinon": "1.17.3",
-    "yargs": "4.1.0"
+    "yargs": "4.7.1"
   },
   "scripts": {
     "test": "karma start karma.conf.js --singleRun",
