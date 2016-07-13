@@ -30,7 +30,7 @@
     "istanbul": "gotwarlost/istanbul#source-map",
     "json5": "^0.4.0",
     "karma": "0.13.22",
-    "karma-browserify": "5.0.1",
+    "karma-browserify": "5.1.0",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "0.2.2",
     "karma-cli": "0.1.2",
