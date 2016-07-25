@@ -4,20 +4,34 @@
   (global.i18nextXHRBackend = factory());
 }(this, function () { 'use strict';
 
-  var babelHelpers = {};
-  babelHelpers.typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  var arr = [];
+  var each = arr.forEach;
+  var slice = arr.slice;
+
+  function defaults(obj) {
+    each.call(slice.call(arguments, 1), function (source) {
+      if (source) {
+        for (var prop in source) {
+          if (obj[prop] === undefined) obj[prop] = source[prop];
+        }
+      }
+    });
+    return obj;
+  }
+
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
     return typeof obj;
   } : function (obj) {
     return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
   };
 
-  babelHelpers.classCallCheck = function (instance, Constructor) {
+  var classCallCheck = function (instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
     }
   };
 
-  babelHelpers.createClass = function () {
+  var createClass = function () {
     function defineProperties(target, props) {
       for (var i = 0; i < props.length; i++) {
         var descriptor = props[i];
@@ -35,27 +49,10 @@
     };
   }();
 
-  babelHelpers;
-
-  var arr = [];
-  var each = arr.forEach;
-  var slice = arr.slice;
-
-  function defaults(obj) {
-    each.call(slice.call(arguments, 1), function (source) {
-      if (source) {
-        for (var prop in source) {
-          if (obj[prop] === undefined) obj[prop] = source[prop];
-        }
-      }
-    });
-    return obj;
-  }
-
   // https://gist.github.com/Xeoncross/7663273
   function ajax(url, options, callback, data, cache) {
     // Must encode data
-    if (data && (typeof data === 'undefined' ? 'undefined' : babelHelpers.typeof(data)) === 'object') {
+    if (data && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object') {
       var y = '',
           e = encodeURIComponent;
       for (var m in data) {
@@ -127,14 +124,14 @@
   var Backend = function () {
     function Backend(services) {
       var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-      babelHelpers.classCallCheck(this, Backend);
+      classCallCheck(this, Backend);
 
       this.init(services, options);
 
       this.type = 'backend';
     }
 
-    babelHelpers.createClass(Backend, [{
+    createClass(Backend, [{
       key: 'init',
       value: function init(services) {
         var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
