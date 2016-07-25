@@ -26,6 +26,6 @@ export default {
     npm({ jsnext: true })
   ].concat(compress ? uglify() : []),
   moduleName: 'i18nextXHRBackend',
-  moduleId: 'i18nextXHRBackend',
+  // moduleId: 'i18nextXHRBackend',
   dest
 };
