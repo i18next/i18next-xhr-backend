@@ -38,7 +38,10 @@ i18next
 
 ```js
 {
-  // path where resources get loaded from
+  // path where resources get loaded from, or a function
+  // that will be called with an array of languages and
+  // an array of namespaces to be loaded and should return
+  // the path
   loadPath: '/locales/{{lng}}/{{ns}}.json',
 
   // path to post missing resources
