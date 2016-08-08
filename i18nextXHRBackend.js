@@ -142,14 +142,24 @@
     }, {
       key: 'readMulti',
       value: function readMulti(languages, namespaces, callback) {
-        var url = this.services.interpolator.interpolate(this.options.loadPath, { lng: languages.join('+'), ns: namespaces.join('+') });
+        var loadPath = this.options.loadPath;
+        if (typeof this.options.loadPath === 'function') {
+          loadPath = this.options.loadPath(languages, namespaces);
+        }
+
+        var url = this.services.interpolator.interpolate(loadPath, { lng: languages.join('+'), ns: namespaces.join('+') });
 
         this.loadUrl(url, callback);
       }
     }, {
       key: 'read',
       value: function read(language, namespace, callback) {
-        var url = this.services.interpolator.interpolate(this.options.loadPath, { lng: language, ns: namespace });
+        var loadPath = this.options.loadPath;
+        if (typeof this.options.loadPath === 'function') {
+          loadPath = this.options.loadPath([language], [namespace]);
+        }
+
+        var url = this.services.interpolator.interpolate(loadPath, { lng: language, ns: namespace });
 
         this.loadUrl(url, callback);
       }

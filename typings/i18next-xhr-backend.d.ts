@@ -20,11 +20,12 @@ declare module 'i18next-xhr-backend' {
     interface Services {
         interpolator: Interpolator
     }
+
     export default class Backend {
         type: 'backend';
         services: Services;
         options: {
-            loadPath: string,
+            loadPath: string | Function,
             addPath:  string,
             allowMultiLoading: boolean,
             parse: () => {},

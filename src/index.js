@@ -84,13 +84,23 @@ class Backend {
   }
 
   readMulti(languages, namespaces, callback) {
-    let url = this.services.interpolator.interpolate(this.options.loadPath, { lng: languages.join('+'), ns: namespaces.join('+') });
+    var loadPath = this.options.loadPath;
+    if (typeof this.options.loadPath === 'function') {
+	    loadPath = this.options.loadPath(languages, namespaces);
+    }
+
+    let url = this.services.interpolator.interpolate(loadPath, { lng: languages.join('+'), ns: namespaces.join('+') });
 
     this.loadUrl(url, callback);
   }
 
   read(language, namespace, callback) {
-    let url = this.services.interpolator.interpolate(this.options.loadPath, { lng: language, ns: namespace });
+    var loadPath = this.options.loadPath;
+    if (typeof this.options.loadPath === 'function') {
+	    loadPath = this.options.loadPath([language], [namespace]);
+    }
+
+    let url = this.services.interpolator.interpolate(loadPath, { lng: language, ns: namespace });
 
     this.loadUrl(url, callback);
   }
