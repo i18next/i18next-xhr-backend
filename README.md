@@ -39,9 +39,9 @@ i18next
 ```js
 {
   // path where resources get loaded from, or a function
-  // that will be called with an array of languages and
-  // an array of namespaces to be loaded and should return
-  // the path
+  // returning a path:
+  // function(lngs, namespaces) { return customPath; }
+  // the returned path will interpolate lng, ns if provided like giving a static path
   loadPath: '/locales/{{lng}}/{{ns}}.json',
 
   // path to post missing resources
