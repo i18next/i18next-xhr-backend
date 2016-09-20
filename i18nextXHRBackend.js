@@ -67,6 +67,7 @@
       if (!options.crossDomain) {
         x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
       }
+      x.withCredentials = !!options.withCredentials;
       if (data) {
         x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
       }
@@ -77,38 +78,7 @@
     } catch (e) {
       window.console && console.log(e);
     }
-  };
-
-  // ajax.uriEncode = function(o) {
-  //     var x, y = '', e = encodeURIComponent;
-  //     for (x in o) y += '&' + e(x) + '=' + e(o[x]);
-  //     return y.slice(1);
-  // };
-  //
-  // ajax.collect = (a, f) {
-  //     var n = [];
-  //     for (var i = 0; i < a.length; i++) {
-  //         var v = f(a[i]);
-  //         if (v != null) n.push(v);
-  //     }
-  //     return n;
-  // };
-  //
-  // ajax.serialize = function (f) {
-  //     function g(n) {
-  //         return f.getElementsByTagName(n);
-  //     };
-  //     var nv = function (e) {
-  //         if (e.name) return encodeURIComponent(e.name) + '=' + encodeURIComponent(e.value);
-  //     };
-  //     var i = collect(g('input'), function (i) {
-  //         if ((i.type != 'radio' && i.type != 'checkbox') || i.checked) return nv(i);
-  //     });
-  //     var s = collect(g('select'), nv);
-  //     var t = collect(g('textarea'), nv);
-  //     return i.concat(s).concat(t).join('&');
-  // };
-  //
+  }
 
   function getDefaults() {
     return {
