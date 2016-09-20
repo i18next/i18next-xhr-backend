@@ -59,6 +59,9 @@ i18next
   // allow cross domain requests
   crossDomain: false,
 
+  // allow credentials on cross domain requests
+  withCredentials: false,
+
   // define a custom xhr function
   // can be used to support XDomainRequest in IE 8 and 9
   ajax: function (url, options, callback, data) {}
