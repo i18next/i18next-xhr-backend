@@ -15,6 +15,7 @@ function ajax(url, options, callback, data, cache) {
     if (!options.crossDomain) {
       x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     }
+    x.withCredentials = !!options.withCredentials;
     if (data) {
       x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     }
