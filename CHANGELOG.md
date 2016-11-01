@@ -1,3 +1,6 @@
+### 1.2.1
+- downgrade babel-preset-es2015-native-modules to correctly build es files
+
 ### 1.2.0
 - support withCredentials flag on XHR [PR238](https://github.com/i18next/i18next-xhr-backend/pull/238)
 
