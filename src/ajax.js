@@ -19,6 +19,12 @@ function ajax(url, options, callback, data, cache) {
     if (data) {
       x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     }
+    if (options.customHeaders && options.customHeaders.length > 0){
+      var h = options.customHeaders;
+      for (var i in h){
+        x.setRequestHeader(h[i]['name'], h[i]['value']);
+      }
+    }
     x.onreadystatechange = function() {
       x.readyState > 3 && callback && callback(x.responseText, x);
     };
