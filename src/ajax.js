@@ -24,7 +24,7 @@ function ajax(url, options, callback, data, cache) {
     };
     x.send(data);
   } catch (e) {
-    window.console && console.log(e);
+    console && console.log(e);
   }
 }
 
