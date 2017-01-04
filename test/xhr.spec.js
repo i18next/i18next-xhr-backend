@@ -23,14 +23,14 @@ describe('XHR backend', () => {
       });
     });
 
-    it('should through error on not existing file', (done) => {
+    it('should throw error on not existing file', (done) => {
       backend.read('en', 'notexisting', function(err, data) {
         expect(err).to.equal('failed loading http://localhost:9876/locales/en/notexisting.json');
         done();
       });
     });
 
-    it('should through error on non json file', (done) => {
+    it('should throw error on non json file', (done) => {
       backend.read('en', 'nonjson', function(err, data) {
         expect(err).to.equal('failed parsing http://localhost:9876/locales/en/nonjson.json to json');
         done();
