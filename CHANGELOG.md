@@ -1,3 +1,7 @@
+### 1.3.0
+- add support for custom headers [PR250](https://github.com/i18next/i18next-xhr-backend/pull/250)
+- update dev dependencies
+
 ### 1.2.1
 - downgrade babel-preset-es2015-native-modules to correctly build es files
 
