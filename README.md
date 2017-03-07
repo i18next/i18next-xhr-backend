@@ -49,7 +49,7 @@ i18next
 
   // your backend server supports multiloading
   // /locales/resources.json?lng=de+en&ns=ns1+ns2
-  allowMultiLoading: false,
+  allowMultiLoading: false, // set loadPath: '/locales/resources.json?lng={{lng}}&ns={{ns}}' to adapt to multiLoading
 
   // parse data after it has been fetched
   // in example use https://www.npmjs.com/package/json5
