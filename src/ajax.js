@@ -1,12 +1,36 @@
+function addQueryString(url, params) {
+  if (params && typeof params === 'object') {
+    let queryString = '',
+      e = encodeURIComponent;
+
+    // Must encode data
+    for (let paramName in params) {
+      queryString += '&' + e(paramName) + '=' + e(params[paramName]);
+    }
+
+    if(!queryString) {
+      return url;
+    }
+
+    url = url + (url.includes('?') ? '&' : '?') + queryString.slice(1);
+  }
+
+  return url
+}
+
+
 // https://gist.github.com/Xeoncross/7663273
 function ajax(url, options, callback, data, cache) {
-  // Must encode data
-  if(data && typeof data === 'object') {
-    var y = '', e = encodeURIComponent;
-    for (var m in data) {
-      y += '&' + e(m) + '=' + e(data[m]);
+  if (data && typeof data === 'object') {
+    if(!cache) {
+      data['_t'] = new Date();
     }
-    data = y.slice(1) + (!cache ? '&_t=' + new Date : '');
+
+    data = addQueryString(data, data);
+  }
+
+  if (options.queryStringParams) {
+    url = addQueryString(url, options.queryStringParams);
   }
 
   try {
