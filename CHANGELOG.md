@@ -1,3 +1,6 @@
+### 1.4.0
+- add `queryStringParams` option [PR255](https://github.com/i18next/i18next-xhr-backend/pull/255)
+
 ### 1.3.0
 - add support for custom headers [PR250](https://github.com/i18next/i18next-xhr-backend/pull/250)
 - update dev dependencies
