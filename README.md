@@ -64,7 +64,10 @@ i18next
 
   // define a custom xhr function
   // can be used to support XDomainRequest in IE 8 and 9
-  ajax: function (url, options, callback, data) {}
+  ajax: function (url, options, callback, data) {},
+
+  // adds parameters to resource URL. 'example.com' -> 'example.com?v=1.3.5'
+  queryStringParams: { v: '1.3.5' }
 }
 ```
 
