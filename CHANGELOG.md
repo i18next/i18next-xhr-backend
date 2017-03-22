@@ -1,3 +1,6 @@
+### 1.4.1
+- fixes ajax
+
 ### 1.4.0
 - add `queryStringParams` option [PR255](https://github.com/i18next/i18next-xhr-backend/pull/255)
 
