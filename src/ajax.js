@@ -12,7 +12,7 @@ function addQueryString(url, params) {
       return url;
     }
 
-    url = url + (url.includes('?') ? '&' : '?') + queryString.slice(1);
+    url = url + (url.indexOf('?') !== -1 ? '&' : '?') + queryString.slice(1);
   }
 
   return url
