@@ -44,12 +44,12 @@ function addQueryString(url, params) {
 // https://gist.github.com/Xeoncross/7663273
 function ajax(url, options, callback, data, cache) {
 
-  if (!cache) {
-    if (data && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object') {
+  if (data && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object') {
+    if (!cache) {
       data['_t'] = new Date();
-    } else {
-      url = addQueryString(url, { '_t': new Date() });
     }
+    // URL encoded form data must be in querystring format
+    data = addQueryString('', data).slice(1);
   }
 
   if (options.queryStringParams) {
