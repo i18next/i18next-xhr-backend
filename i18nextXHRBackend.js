@@ -35,7 +35,7 @@ function addQueryString(url, params) {
       return url;
     }
 
-    url = url + (url.includes('?') ? '&' : '?') + queryString.slice(1);
+    url = url + (url.indexOf('?') !== -1 ? '&' : '?') + queryString.slice(1);
   }
 
   return url;
@@ -43,12 +43,13 @@ function addQueryString(url, params) {
 
 // https://gist.github.com/Xeoncross/7663273
 function ajax(url, options, callback, data, cache) {
+
   if (data && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object') {
     if (!cache) {
       data['_t'] = new Date();
     }
-
-    data = addQueryString(data, data);
+    // URL encoded form data must be in querystring format
+    data = addQueryString('', data).slice(1);
   }
 
   if (options.queryStringParams) {
