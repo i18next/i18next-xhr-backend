@@ -132,10 +132,12 @@ i18next
   });
 ```
 
-## If You use typescript##
-You can find typings file on `DefinitelyTyped`
+## TypeScript definitions
 
-The next step - install the typings with
-```
-typings install --save --global dt~i18next-xhr-backend
-```
+- Install from `@types` (for TypeScript v2 and later):
+
+        npm install --save-dev @types/i18next-xhr-backend
+
+- Install from `typings`:
+
+        typings install --save --global dt~i18next-xhr-backend
