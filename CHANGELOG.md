@@ -1,3 +1,6 @@
+### 1.4.2
+- usage with sinon [260](https://github.com/i18next/i18next-xhr-backend/pull/260)
+
 ### 1.4.1
 - fixes ajax
 
