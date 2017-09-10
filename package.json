@@ -73,5 +73,6 @@
     "postversion": "git push && git push --tags"
   },
   "author": "Jan Mühlemann <jan.muehlemann@gmail.com> (https://github.com/jamuhl)",
-  "license": "MIT"
+  "license": "MIT",
+  "lock": false
 }

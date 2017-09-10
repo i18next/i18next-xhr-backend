@@ -1,3 +1,7 @@
+### 1.4.3
+
+- Fix XML parsing error in Firefox [PR265](https://github.com/i18next/i18next-xhr-backend/pull/265)
+
 ### 1.4.2
 - usage with sinon [260](https://github.com/i18next/i18next-xhr-backend/pull/260)
 
