@@ -71,6 +71,9 @@ function ajax(url, options, callback, data, cache) {
     if (data) {
       x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     }
+    if (x.overrideMimeType) {
+      x.overrideMimeType("application/json");
+    }
     var h = options.customHeaders;
     if (h) {
       for (var i in h) {
