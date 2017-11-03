@@ -1,5 +1,5 @@
-import * as utils from './utils';
-import ajax from './ajax'
+import * as utils from './utils.js';
+import ajax from './ajax.js'
 
 function getDefaults() {
   return {
