@@ -1,3 +1,6 @@
+### 1.5.0
+- add .js for browser import implementation [PR268](https://github.com/i18next/i18next-xhr-backend/pull/268)
+
 ### 1.4.3
 
 - Fix XML parsing error in Firefox [PR265](https://github.com/i18next/i18next-xhr-backend/pull/265)
