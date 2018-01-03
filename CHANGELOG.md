@@ -1,3 +1,6 @@
+### 1.5.1
+- fixes add path to use `/locales/...`
+
 ### 1.5.0
 - add .js for browser import implementation [PR268](https://github.com/i18next/i18next-xhr-backend/pull/268)
 
