@@ -101,6 +101,8 @@ via calling init:
   xhr.init(options);
 ```
 
+## Misc
+
 #### Usage with webpack's bundle loader instead of using xhr requests
 
 To use with webpack, install [bundle-loader](https://github.com/webpack/bundle-loader) and [json-loader](https://github.com/webpack/json-loader).
