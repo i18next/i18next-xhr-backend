@@ -101,7 +101,7 @@ via calling init:
   xhr.init(options);
 ```
 
-### Usage with webpack
+#### Usage with webpack's bundle loader instead of using xhr requests
 
 To use with webpack, install [bundle-loader](https://github.com/webpack/bundle-loader) and [json-loader](https://github.com/webpack/json-loader).
 
@@ -132,7 +132,7 @@ i18next
   });
 ```
 
-## TypeScript definitions
+#### TypeScript definitions
 
 - Install from `@types` (for TypeScript v2 and later):
 
