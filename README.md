@@ -143,3 +143,13 @@ i18next
 - Install from `typings`:
 
         typings install --save --global dt~i18next-xhr-backend
+
+--------------
+
+<h3 align="center">Gold Sponsors</h3>
+
+<p align="center">
+  <a href="https://locize.com/" target="_blank">
+    <img src="https://raw.githubusercontent.com/i18next/i18next/master/assets/locize_sponsor_240.gif" width="240px">
+  </a>
+</p>
