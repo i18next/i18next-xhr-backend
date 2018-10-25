@@ -64,6 +64,14 @@ i18next
 
   // define a custom xhr function
   // can be used to support XDomainRequest in IE 8 and 9
+  //
+  // 'url' will be passed the value of 'loadPath'
+  // 'options' will be this entire options object
+  // 'callback' is a function that takes two parameters, 'data' and 'xhr'.
+  //            'data' should be the key:value translation pairs for the
+  //            requested language and namespace, or null in case of an error.
+  //            'xhr' should be a status object, e.g. { status: 200 }
+  // 'data' will be a key:value object used when saving missing translations
   ajax: function (url, options, callback, data) {},
 
   // adds parameters to resource URL. 'example.com' -> 'example.com?v=1.3.5'
