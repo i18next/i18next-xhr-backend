@@ -64,7 +64,7 @@ i18next
 
   // define a custom xhr function
   // can be used to support XDomainRequest in IE 8 and 9
-  ajax: function (url, options, callback, data) {},
+  ajax: function (url, options, callback) {},
 
   // adds parameters to resource URL. 'example.com' -> 'example.com?v=1.3.5'
   queryStringParams: { v: '1.3.5' }
@@ -110,7 +110,7 @@ To use with webpack, install [bundle-loader](https://github.com/webpack/bundle-l
 Define a custom xhr function, webpack's bundle loader will load the translations for you.
 
 ```js
-function loadLocales(url, options, callback, data) {
+function loadLocales(url, options, callback) {
   try {
     let waitForLocale = require('bundle!./locales/'+url+'.json');
     waitForLocale((locale) => {
