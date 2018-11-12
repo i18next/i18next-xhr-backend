@@ -106,7 +106,7 @@ via calling init:
 ```js
   import XHR from 'i18next-xhr-backend';
   const xhr = new XHR();
-  xhr.init(options);
+  xhr.init(null, options);
 ```
 
 ## Misc
