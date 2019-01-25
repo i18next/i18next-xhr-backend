@@ -49,6 +49,15 @@ i18next
 
   // your backend server supports multiloading
   // /locales/resources.json?lng=de+en&ns=ns1+ns2
+  // Adapter is needed to enable MultiLoading https://github.com/i18next/i18next-multiload-backend-adapter
+  // Returned JSON structure in this case is
+  // {
+  //  lang : {
+  //   namespaceA: {},
+  //   namespaceB: {},
+  //   ...etc
+  //  }
+  // }
   allowMultiLoading: false, // set loadPath: '/locales/resources.json?lng={{lng}}&ns={{ns}}' to adapt to multiLoading
 
   // parse data after it has been fetched
