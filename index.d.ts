@@ -55,8 +55,8 @@ declare namespace I18NextXhrBackend {
 }
 
 declare class I18NextXhrBackend {
-  constructor(services: any, options?: I18NextXhrBackend.BackendOptions);
-  init(services: any, options?: I18NextXhrBackend.BackendOptions): void;
+  constructor(services?: any, options?: I18NextXhrBackend.BackendOptions);
+  init(services?: any, options?: I18NextXhrBackend.BackendOptions): void;
   readMulti(languages: string[], namespaces: string[], callback: I18NextXhrBackend.LoadCallback): void;
   read(language: string, namespace: string, callback: I18NextXhrBackend.LoadCallback): void;
   loadUrl(url: string, callback: I18NextXhrBackend.LoadCallback): void;
