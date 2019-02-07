@@ -3,6 +3,7 @@
   "version": "1.5.1",
   "description": "backend layer for i18next using browsers xhr",
   "main": "./index.js",
+  "types": "./index.d.ts",
   "jsnext:main": "dist/es/index.js",
   "keywords": [
     "i18next",
