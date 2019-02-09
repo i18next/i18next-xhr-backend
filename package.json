@@ -3,6 +3,7 @@
   "version": "1.5.1",
   "description": "backend layer for i18next using browsers xhr",
   "main": "./index.js",
+  "types": "./index.d.ts",
   "jsnext:main": "dist/es/index.js",
   "keywords": [
     "i18next",
@@ -26,6 +27,7 @@
     "browserify-istanbul": "2.0.0",
     "chai": "3.5.0",
     "coveralls": "2.11.15",
+    "dtslint": "^0.4.2",
     "eslint": "3.13.0",
     "eslint-config-airbnb": "13.0.0",
     "i18next": "4.1.4",
@@ -53,10 +55,14 @@
     "rollup-plugin-node-resolve": "2.0.0",
     "rollup-plugin-uglify": "1.0.1",
     "sinon": "1.17.7",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1",
     "yargs": "6.6.0"
   },
   "scripts": {
+    "pretest": "npm run test:typescript",
     "test": "karma start karma.conf.js --singleRun",
+    "test:typescript": "tslint --project tsconfig.json",
     "tdd": "karma start karma.conf.js",
     "clean": "rimraf dist && mkdirp dist",
     "copy": "cp ./dist/umd/i18nextXHRBackend.min.js ./i18nextXHRBackend.min.js && cp ./dist/umd/i18nextXHRBackend.js ./i18nextXHRBackend.js",
