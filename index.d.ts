@@ -54,7 +54,7 @@ declare namespace I18NextXhrBackend {
   type LoadCallback = (error: any, result: string | false) => void;
 }
 
-declare class I18NextXhrBackend {
+export default class I18NextXhrBackend {
   constructor(services?: any, options?: I18NextXhrBackend.BackendOptions);
   init(services?: any, options?: I18NextXhrBackend.BackendOptions): void;
   readMulti(languages: string[], namespaces: string[], callback: I18NextXhrBackend.LoadCallback): void;
@@ -65,5 +65,3 @@ declare class I18NextXhrBackend {
   services: any;
   options: I18NextXhrBackend.BackendOptions;
 }
-
-export = I18NextXhrBackend;
