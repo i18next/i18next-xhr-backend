@@ -1,3 +1,7 @@
+### 2.0.1
+
+- typescript: fix types [298](https://github.com/i18next/i18next-xhr-backend/pull/298)
+
 ### 2.0.0
 
 - typescript: add types
