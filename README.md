@@ -70,6 +70,15 @@ i18next
 
   // allow credentials on cross domain requests
   withCredentials: false,
+  
+  // overrideMimeType sets request.overrideMimeType("application/json")
+  overrideMimeType: false,
+  
+  // custom request headers sets request.setRequestHeader(key, value)
+  customHeaders: {
+    authorization: 'foo',
+    // ...
+  },
 
   // define a custom xhr function
   // can be used to support XDomainRequest in IE 8 and 9
