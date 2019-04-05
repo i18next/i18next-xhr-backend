@@ -129,37 +129,6 @@ via calling init:
 
 ## Misc
 
-#### Usage with webpack's bundle loader instead of using xhr requests
-
-To use with webpack, install [bundle-loader](https://github.com/webpack/bundle-loader) and [json-loader](https://github.com/webpack/json-loader).
-
-Define a custom xhr function, webpack's bundle loader will load the translations for you.
-
-```js
-function loadLocales(url, options, callback, data) {
-  try {
-    let waitForLocale = require('bundle!./locales/'+url+'.json');
-    waitForLocale((locale) => {
-      callback(locale, {status: '200'});
-    })
-  } catch (e) {
-    callback(null, {status: '404'});
-  }
-}
-
-i18next
-  .use(XHR)
-  .init({
-    backend: {
-      loadPath: '{{lng}}',
-      parse: (data) => data,
-      ajax: loadLocales
-    }
-  }, (err, t) => {
-    // ...
-  });
-```
-
 #### TypeScript definitions
 
 - Install from `@types` (for TypeScript v2 and later):
