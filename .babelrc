@@ -1,13 +1,13 @@
 {
   "env": {
     "development": {
-      "presets": [ "es2015", "stage-0" ]
+      "presets": [ "@babel/env" ]
     },
     "rollup": {
-      "presets": [ ["es2015", { "modules": false }], "stage-0"  ]
+      "presets": [ ["@babel/env", { "modules": false }] ]
     },
     "jsnext": {
-      "presets": [ ["es2015", { "modules": false }], "stage-0"  ]
+      "presets": [ ["@babel/env", { "modules": false }] ]
     }
   }
 }
