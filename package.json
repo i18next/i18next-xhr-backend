@@ -2,9 +2,9 @@
   "name": "i18next-xhr-backend",
   "version": "2.0.1",
   "description": "backend layer for i18next using browsers xhr",
-  "main": "./index.js",
+  "main": "./dist/cjs/i18nextXHRBackend.js",
+  "module": "./dist/esm/i18nextXHRBackend.js",
   "types": "./index.d.ts",
-  "jsnext:main": "dist/es/index.js",
   "keywords": [
     "i18next",
     "i18next-backend"
@@ -15,10 +15,12 @@
     "type": "git",
     "url": "https://github.com/i18next/i18next-xhr-backend"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@babel/runtime": "^7.4.5"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "babel-eslint": "^10.0.1",
     "babelify": "^10.0.0",
@@ -26,6 +28,7 @@
     "browserify-istanbul": "2.0.0",
     "chai": "3.5.0",
     "coveralls": "2.11.15",
+    "cpy-cli": "^2.0.0",
     "dtslint": "^0.4.2",
     "eslint": "3.13.0",
     "eslint-config-airbnb": "13.0.0",
@@ -44,7 +47,6 @@
     "karma-phantomjs-launcher": "1.0.2",
     "karma-sinon": "1.0.5",
     "karma-spec-reporter": "0.0.26",
-    "mkdirp": "0.5.1",
     "mocha": "3.2.0",
     "phantomjs-prebuilt": "2.1.14",
     "rimraf": "2.5.4",
@@ -54,25 +56,14 @@
     "rollup-plugin-terser": "^5.0.0",
     "sinon": "1.17.7",
     "tslint": "^5.12.1",
-    "typescript": "^3.3.1",
-    "yargs": "6.6.0"
+    "typescript": "^3.3.1"
   },
   "scripts": {
     "pretest": "npm run test:typescript",
     "test": "karma start karma.conf.js --singleRun",
     "test:typescript": "tslint --project tsconfig.json",
     "tdd": "karma start karma.conf.js",
-    "clean": "rimraf dist && mkdirp dist",
-    "copy": "cp ./dist/umd/i18nextXHRBackend.min.js ./i18nextXHRBackend.min.js && cp ./dist/umd/i18nextXHRBackend.js ./i18nextXHRBackend.js",
-    "copy-win": "xcopy .\\dist\\umd\\i18nextXHRBackend.min.js .\\i18nextXHRBackend.min.js /y && xcopy .\\dist\\umd\\i18nextXHRBackend.js .\\i18nextXHRBackend.js /y",
-    "build:es": "BABEL_ENV=jsnext babel src --out-dir dist/es",
-    "build:es-win": "SET BABEL_ENV=jsnext babel src --out-dir dist/es",
-    "build:cjs": "babel src --out-dir dist/commonjs",
-    "build:umd": "rollup -c --format umd",
-    "build:amd": "rollup -c --format amd",
-    "build:iife": "rollup -c --format iife",
-    "build": "npm run clean && npm run build:cjs && npm run build:es && npm run build:umd && npm run copy",
-    "build-win": "npm run clean && npm run build:cjs && npm run build:es-win && npm run build:umd && npm run copy-win",
+    "build": "rimraf dist && rollup -c && cpy \"./dist/umd/*.js\" ./",
     "preversion": "npm run test && npm run build && git push",
     "postversion": "git push && git push --tags"
   },
