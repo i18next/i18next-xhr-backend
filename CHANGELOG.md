@@ -1,3 +1,10 @@
+### 3.0.0
+
+- removes deprecated jsnext:main from package.json
+- Bundle all entry points with rollup [314](https://github.com/i18next/i18next-xhr-backend/pull/314)
+- **note:** dist/es -> dist/esm, dist/commonjs -> dist/cjs (individual files -> one bundled file)
+- removes bower finally
+
 ### 2.0.1
 
 - typescript: fix types [298](https://github.com/i18next/i18next-xhr-backend/pull/298)
