@@ -1,3 +1,7 @@
+### 3.0.1
+
+- typescript: Fix the types and use exposed types from i18next [319](https://github.com/i18next/i18next-xhr-backend/pull/319)
+
 ### 3.0.0
 
 - removes deprecated jsnext:main from package.json
