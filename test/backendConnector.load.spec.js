@@ -1,22 +1,17 @@
+import 'babel-polyfill';
 import i18next from 'i18next';
 import XHR from '../src/';
+
+i18next.init();
 
 describe('BackendConnector basic load', () => {
   let connector;
 
   before(() => {
-    connector = new i18next.services.backendConnector(
-      new XHR(),
-      i18next.services.resourceStore,
-      {
-        interpolator: i18next.services.interpolator,
-      },
-      {
-        backend: {
-          loadPath: 'http://localhost:9876/locales/{{lng}}/{{ns}}.json',
-        },
-      },
-    );
+    connector = i18next.services.backendConnector;
+    connector.backend = new XHR(i18next.services, {
+      loadPath: 'http://localhost:9876/locales/{{lng}}/{{ns}}.json',
+    });
   });
 
   describe('#load', () => {
