@@ -1,24 +1,26 @@
-import BackendConnector from 'i18next/dist/commonjs/BackendConnector.js';
+import 'babel-polyfill';
+import i18next from 'i18next';
 import XHR from '../src/';
-import Interpolator from 'i18next/dist/commonjs/Interpolator';
-import ResourceStore from 'i18next/dist/commonjs/ResourceStore.js';
+
+i18next.init();
 
 describe('BackendConnector basic load', () => {
   let connector;
 
   before(() => {
-    connector = new BackendConnector(new XHR(), new ResourceStore(), {
-      interpolator: new Interpolator()
-    }, {
-      backend: { loadPath: 'http://localhost:9876/locales/{{lng}}/{{ns}}.json' }
+    connector = i18next.services.backendConnector;
+    connector.backend = new XHR(i18next.services, {
+      loadPath: 'http://localhost:9876/locales/{{lng}}/{{ns}}.json',
     });
   });
 
   describe('#load', () => {
-    it('should load data', (done) => {
+    it('should load data', done => {
       connector.load(['en'], ['test'], function(err) {
         expect(err).to.be.not.ok;
-        expect(connector.store.getResourceBundle('en', 'test')).to.eql({key: 'passing'});
+        expect(connector.store.getResourceBundle('en', 'test')).to.eql({
+          key: 'passing',
+        });
         done();
       });
     });
