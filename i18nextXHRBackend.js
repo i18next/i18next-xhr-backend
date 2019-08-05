@@ -116,6 +116,7 @@
       }
 
       var h = options.customHeaders;
+      h = typeof h === 'function' ? h() : h;
 
       if (h) {
         for (var i in h) {

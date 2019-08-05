@@ -1,3 +1,7 @@
+### 3.1.0
+
+- allow customHeaders to be a function [321](https://github.com/i18next/i18next-xhr-backend/pull/321)
+
 ### 3.0.1
 
 - typescript: Fix the types and use exposed types from i18next [319](https://github.com/i18next/i18next-xhr-backend/pull/319)
