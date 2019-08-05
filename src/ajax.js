@@ -53,6 +53,7 @@ function ajax(url, options, callback, data, cache) {
       x.overrideMimeType("application/json");
     }
     var h = options.customHeaders;
+    h = typeof h === 'function' ? h() : h;
     if (h) {
       for (var i in h) {
         x.setRequestHeader(i, h[i]);
