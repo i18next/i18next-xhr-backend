@@ -1,3 +1,7 @@
+### 3.1.1
+
+- typescript: fix use of class, add `use()` tests [322](https://github.com/i18next/i18next-xhr-backend/pull/322)
+
 ### 3.1.0
 
 - allow customHeaders to be a function [321](https://github.com/i18next/i18next-xhr-backend/pull/321)
