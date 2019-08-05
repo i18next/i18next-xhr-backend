@@ -33,7 +33,7 @@
     "dtslint": "^0.9.0",
     "eslint": "6.1.0",
     "eslint-config-airbnb": "17.1.1",
-    "i18next": "^17.0.8",
+    "i18next": "^17.0.9",
     "istanbul": "gotwarlost/istanbul#source-map",
     "json5": "2.1.0",
     "karma": "4.2.0",
