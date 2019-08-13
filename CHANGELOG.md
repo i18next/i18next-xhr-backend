@@ -1,3 +1,7 @@
+### 3.1.2
+
+- typescript: fix No inputs were found in config file" - tsconfig typo [323](https://github.com/i18next/i18next-xhr-backend/issues/323)
+
 ### 3.1.1
 
 - typescript: fix use of class, add `use()` tests [322](https://github.com/i18next/i18next-xhr-backend/pull/322)
