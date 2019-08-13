@@ -11,5 +11,5 @@
     "baseUrl": ".",
     "paths": { "i18next-xhr-backend": ["./index.d.ts"] }
   },
-  "include": ["./indext.d.ts", "./test/**/*.ts*"]
+  "include": ["./index.d.ts", "./test/**/*.ts*"]
 }
