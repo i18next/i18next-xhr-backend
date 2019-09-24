@@ -29,6 +29,10 @@ interface BackendOptions {
    */
   parse?(data: string): string;
   /**
+   * parse data before it has been sent by addPath
+   */
+  parsePayload?(namespace: string, key: string, fallbackValue?: string): { [key:string]: any };
+  /**
    * allow cross domain requests
    */
   crossDomain?: boolean;
