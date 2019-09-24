@@ -26,6 +26,21 @@
     return Constructor;
   }
 
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
   var arr = [];
   var each = arr.forEach;
   var slice = arr.slice;
@@ -140,6 +155,9 @@
       addPath: '/locales/add/{{lng}}/{{ns}}',
       allowMultiLoading: false,
       parse: JSON.parse,
+      parsePayload: function parsePayload(namespace, key, fallbackValue) {
+        return _defineProperty({}, key, fallbackValue || '');
+      },
       crossDomain: false,
       ajax: ajax
     };
@@ -224,8 +242,7 @@
         var _this2 = this;
 
         if (typeof languages === 'string') languages = [languages];
-        var payload = {};
-        payload[key] = fallbackValue || '';
+        var payload = this.options.parsePayload(namespace, key, fallbackValue);
         languages.forEach(function (lng) {
           var url = _this2.services.interpolator.interpolate(_this2.options.addPath, {
             lng: lng,

@@ -1,3 +1,7 @@
+### 3.2.0
+
+- Parse payload option [326](https://github.com/i18next/i18next-xhr-backend/pull/326)
+
 ### 3.1.2
 
 - typescript: fix No inputs were found in config file" - tsconfig typo [323](https://github.com/i18next/i18next-xhr-backend/issues/323)
