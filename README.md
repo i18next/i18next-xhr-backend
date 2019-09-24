@@ -65,6 +65,9 @@ i18next
   // here it removes the letter a from the json (bad idea)
   parse: function(data) { return data.replace(/a/g, ''); },
 
+  //parse data before it has been sent by addPath
+  parsePayload: function(namespace, key, fallbackValue) { return { key } },
+
   // allow cross domain requests
   crossDomain: false,
 

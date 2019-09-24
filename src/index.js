@@ -7,6 +7,8 @@ function getDefaults() {
     addPath: '/locales/add/{{lng}}/{{ns}}',
     allowMultiLoading: false,
     parse: JSON.parse,
+    parsePayload: (namespace, key, fallbackValue) => 
+      ({ [key]: fallbackValue || '' }),
     crossDomain: false,
     ajax: ajax
   };
@@ -65,8 +67,7 @@ class Backend {
   create(languages, namespace, key, fallbackValue) {
     if (typeof languages === 'string') languages = [languages];
 
-    let payload = {};
-    payload[key] = fallbackValue || '';
+    let payload = this.options.parsePayload(namespace, key, fallbackValue);
 
     languages.forEach(lng => {
       let url = this.services.interpolator.interpolate(this.options.addPath, { lng: lng, ns: namespace });
