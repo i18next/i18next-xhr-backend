@@ -1,3 +1,7 @@
+### 3.2.1
+
+- typescript: Use updated ts export default from i18next [330](https://github.com/i18next/i18next-xhr-backend/pull/330)
+
 ### 3.2.0
 
 - Parse payload option [326](https://github.com/i18next/i18next-xhr-backend/pull/326)
