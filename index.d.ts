@@ -1,8 +1,6 @@
-import * as i18next from "i18next";
+import i18next from 'i18next';
 
-type LoadPathOption =
-  | string
-  | ((lngs: string[], namespaces: string[]) => string);
+type LoadPathOption = string | ((lngs: string[], namespaces: string[]) => string);
 
 interface BackendOptions {
   /**
@@ -31,7 +29,7 @@ interface BackendOptions {
   /**
    * parse data before it has been sent by addPath
    */
-  parsePayload?(namespace: string, key: string, fallbackValue?: string): { [key:string]: any };
+  parsePayload?(namespace: string, key: string, fallbackValue?: string): { [key: string]: any };
   /**
    * allow cross domain requests
    */
@@ -49,7 +47,7 @@ interface BackendOptions {
     options: BackendOptions,
     callback: AjaxRequestCallback,
     data: {} | string,
-    cache: boolean
+    cache: boolean,
   ): void;
   /**
    * adds parameters to resource URL. 'example.com' -> 'example.com?v=1.3.5'
@@ -66,28 +64,14 @@ type AjaxRequestCallback = (response: string, x: XMLHttpRequest) => void;
 
 // type LoadCallback = (error: any, result: string | false) => void;
 
-export default class I18NextXhrBackend
-  implements i18next.BackendModule<BackendOptions> {
+export default class I18NextXhrBackend implements i18next.BackendModule<BackendOptions> {
   constructor(services?: any, options?: BackendOptions);
   init(services?: any, options?: BackendOptions): void;
-  readMulti(
-    languages: string[],
-    namespaces: string[],
-    callback: i18next.ReadCallback
-  ): void;
-  read(
-    language: string,
-    namespace: string,
-    callback: i18next.ReadCallback
-  ): void;
+  readMulti(languages: string[], namespaces: string[], callback: i18next.ReadCallback): void;
+  read(language: string, namespace: string, callback: i18next.ReadCallback): void;
   loadUrl(url: string, callback: i18next.ReadCallback): void;
-  create(
-    languages: string | string[],
-    namespace: string,
-    key: string,
-    fallbackValue: string
-  ): void;
-  type: "backend";
+  create(languages: string | string[], namespace: string, key: string, fallbackValue: string): void;
+  type: 'backend';
   services: any;
   options: BackendOptions;
 }
