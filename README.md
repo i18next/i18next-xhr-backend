@@ -6,7 +6,7 @@
 [![Bower](https://img.shields.io/bower/v/i18next-xhr-backend.svg)]()
 [![David](https://img.shields.io/david/i18next/i18next-xhr-backend.svg?style=flat-square)](https://david-dm.org/i18next/i18next-xhr-backend)
 
-This is a simple i18next backend to be used in the browser. It will load resources from a backend server using xhr.
+This is a simple i18next backend to be used in the browser. It will load resources from a backend server using the xhr API.
 
 # Getting started
 
@@ -26,9 +26,7 @@ Wiring up:
 import i18next from 'i18next';
 import XHR from 'i18next-xhr-backend';
 
-i18next
-  .use(XHR)
-  .init(i18nextOptions);
+i18next.use(XHR).init(i18nextOptions);
 ```
 
 - As with all modules you can either pass the constructor function (class) to the i18next.use or a concrete instance.
@@ -73,10 +71,10 @@ i18next
 
   // allow credentials on cross domain requests
   withCredentials: false,
-  
+
   // overrideMimeType sets request.overrideMimeType("application/json")
   overrideMimeType: false,
-  
+
   // custom request headers sets request.setRequestHeader(key, value)
   customHeaders: {
     authorization: 'foo',
@@ -108,26 +106,24 @@ Options can be passed in:
 import i18next from 'i18next';
 import XHR from 'i18next-xhr-backend';
 
-i18next
-  .use(XHR)
-  .init({
-    backend: options
-  });
+i18next.use(XHR).init({
+  backend: options,
+});
 ```
 
 on construction:
 
 ```js
-  import XHR from 'i18next-xhr-backend';
-  const xhr = new XHR(null, options);
+import XHR from 'i18next-xhr-backend';
+const xhr = new XHR(null, options);
 ```
 
 via calling init:
 
 ```js
-  import XHR from 'i18next-xhr-backend';
-  const xhr = new XHR();
-  xhr.init(null, options);
+import XHR from 'i18next-xhr-backend';
+const xhr = new XHR();
+xhr.init(null, options);
 ```
 
 ## Misc
@@ -142,7 +138,7 @@ via calling init:
 
         typings install --save --global dt~i18next-xhr-backend
 
---------------
+---
 
 <h3 align="center">Gold Sponsors</h3>
 
