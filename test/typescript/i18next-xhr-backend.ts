@@ -1,5 +1,5 @@
 import XHR, { AjaxRequestCallback, BackendOptions } from 'i18next-xhr-backend';
-import i18n, { Resource } from 'i18next';
+import i18n, { ResourceKey } from 'i18next';
 
 const options: BackendOptions = {
   loadPath: '/locales/{{lng}}/{{ns}}.json',
@@ -19,9 +19,9 @@ const type: string = xhr.type;
 const newOptions: BackendOptions = xhr.options;
 xhr.create('en', 'ns', 'key', 'value');
 xhr.create(['en', 'us'], 'ns', 'key', 'value');
-xhr.read('en', 'ns', (err: Error | null | undefined, data: Resource) => {});
-xhr.readMulti(['en'], ['ns'], (err: Error | null | undefined, data: Resource) => {});
-xhr.loadUrl('someurl', (err: Error | null | undefined, data: Resource) => {});
+xhr.read('en', 'ns', (err: Error | null | undefined, data: ResourceKey) => {});
+xhr.readMulti(['en'], ['ns'], (err: Error | null | undefined, data: ResourceKey) => {});
+xhr.loadUrl('someurl', (err: Error | null | undefined, data: ResourceKey) => {});
 
 // instance
 i18n.use(xhr);
