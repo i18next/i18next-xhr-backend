@@ -1,3 +1,7 @@
+### 3.2.2
+
+- typescript: Hotfix TS error importing types from i18next [333](https://github.com/i18next/i18next-xhr-backend/pull/333)
+
 ### 3.2.1
 
 - typescript: Use updated ts export default from i18next [330](https://github.com/i18next/i18next-xhr-backend/pull/330)
