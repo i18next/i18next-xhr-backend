@@ -57,7 +57,11 @@ class Backend {
       try {
         ret = this.options.parse(data, url);
       } catch (e) {
-        err = 'failed parsing ' + url + ' to json';
+        err = {
+          message: 'failed parsing ' + url + ' to json',
+          error: e,
+          data,
+        };
       }
       if (err) return callback(err, false);
       callback(null, ret);
