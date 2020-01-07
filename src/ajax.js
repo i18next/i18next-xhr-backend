@@ -34,6 +34,42 @@ function ajax(url, options, callback, data, cache) {
     url = addQueryString(url, options.queryStringParams);
   }
 
+  if (typeof fetch !== "undefined") {
+    // use fetch (newer api)
+    var opts = {
+      'headers': {},
+    };
+    if (data) {
+      opts.method = 'POST';
+      opts.body = data;
+    }
+    if (!options.crossDomain) {
+      opts.mode = 'cors';
+    }
+    if (!!options.withCredentials) {
+      opts.credentials = 'include';
+    }
+    if (data) {
+      opts.headers["Content-Type"] = "application/x-www-form-urlencoded";
+    }
+
+    var h = options.customHeaders;
+    h = typeof h === 'function' ? h() : h;
+    if (h) {
+      for (var i in h) {
+        var p = h.indexOf(':');
+	if (p > 0) opts.headers[p.substr(0, p)] = p.substr(p+1).trim();
+      }
+    }
+
+    fetch(url, opts).then(function(res) {
+      if (callback) {
+        res.text().then(function(txt) { callback(txt, res); });
+      }
+    });
+    return;
+  }
+
   try {
     var x
     if (XMLHttpRequest) {
