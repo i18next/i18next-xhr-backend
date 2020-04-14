@@ -1,3 +1,9 @@
+# DEPRECATED
+
+Can be replaced with: [i18next-http-backend](https://github.com/i18next/i18next-http-backend)
+
+---
+
 # Introduction
 
 [![Travis](https://img.shields.io/travis/i18next/i18next-xhr-backend/master.svg?style=flat-square)](https://travis-ci.org/i18next/i18next-xhr-backend)
