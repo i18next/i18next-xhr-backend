@@ -2,6 +2,8 @@
 
 Can be replaced with: [i18next-http-backend](https://github.com/i18next/i18next-http-backend)
 
+**[Why?](https://github.com/i18next/i18next-xhr-backend/issues/348#issuecomment-663060275)**
+
 ---
 
 # Introduction
